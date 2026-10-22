@@ -1,0 +1,110 @@
+@import "tailwindcss";
+@import "react-toastify/dist/ReactToastify.css";
+
+/* Semantic colors (dark theme): components use these tokens instead of raw palette values. */
+@theme {
+  --color-canvas: var(--color-slate-950);
+  --color-surface: var(--color-slate-900);
+  --color-surface-muted: color-mix(
+    in oklab,
+    var(--color-slate-800) 60%,
+    transparent
+  );
+  --color-fg: var(--color-slate-100);
+  --color-fg-muted: var(--color-slate-400);
+  --color-line: var(--color-slate-800);
+  --color-line-strong: var(--color-slate-700);
+  --color-accent: var(--color-indigo-500);
+  --color-accent-hover: var(--color-indigo-400);
+  --color-accent-fg: var(--color-white);
+  --color-danger: var(--color-red-400);
+  --color-danger-soft: color-mix(
+    in oklab,
+    var(--color-red-500) 15%,
+    transparent
+  );
+  --color-success: var(--color-emerald-300);
+  --color-success-soft: color-mix(
+    in oklab,
+    var(--color-emerald-500) 15%,
+    transparent
+  );
+
+  --animate-fade-in: fade-in 200ms ease-out both;
+  --animate-fade-out: fade-out 150ms ease-in both;
+  --animate-fade-in-up: fade-in-up 300ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-pop-in: pop-in 400ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-pop-out: pop-out 150ms ease-in both;
+  --animate-shimmer: shimmer 1.4s linear infinite;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes fade-out {
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+  }
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      transform: translateY(16px) scale(0.97);
+    }
+  }
+  @keyframes pop-out {
+    to {
+      opacity: 0;
+      transform: translateY(8px) scale(0.98);
+    }
+  }
+  @keyframes shimmer {
+    from {
+      background-position: 200% 0;
+    }
+    to {
+      background-position: -200% 0;
+    }
+  }
+}
+
+:root {
+  color-scheme: dark;
+}
+
+.Toastify .Toastify__toast {
+  background: var(--color-surface);
+  color: var(--color-fg);
+  border: 1px solid var(--color-line);
+  font-family: inherit;
+  font-size: 0.875rem;
+}
+
+.Toastify .Toastify__close-button {
+  color: var(--color-fg-muted);
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-fg);
+  transition:
+    background-color 200ms,
+    color 200ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}
